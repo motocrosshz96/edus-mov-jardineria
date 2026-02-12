@@ -14,12 +14,16 @@ document.querySelectorAll('nav a').forEach(anchor => {
 });
 
 // Manejo del formulario de contacto
-document.getElementById('formulario-contacto').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
-    this.reset();
-});
+const formulario = document.getElementById('formulario-contacto');
+
+if (formulario) {
+    formulario.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+        this.reset();
+    });
+}
+
 
 // Efecto de aparición al hacer scroll
 const observerOptions = {
@@ -59,3 +63,42 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// ======================
+// MODO OSCURO
+// ======================
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const darkToggle = document.getElementById('dark-mode-toggle');
+    const icon = document.querySelector('.toggle-icon');
+
+    if (!darkToggle) {
+        console.error("Botón modo oscuro no encontrado");
+        return;
+    }
+
+    // Cargar tema guardado
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'dark') {
+        document.body.setAttribute('data-theme', 'dark');
+        icon.textContent = '☀️';
+    }
+
+    // Evento del botón
+    darkToggle.addEventListener('click', () => {
+        const currentTheme = document.body.getAttribute('data-theme');
+
+        if (currentTheme === 'dark') {
+            document.body.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+            icon.textContent = '🌙';
+        } else {
+            document.body.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            icon.textContent = '☀️';
+        }
+    });
+
+});

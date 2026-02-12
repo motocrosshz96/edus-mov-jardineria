@@ -5,11 +5,47 @@
     box-sizing: border-box;
 }
 
+/* ======================
+    VARIABLES PARA MODO OSCURO
+   ====================== */
+:root {
+    /* Colores modo claro (default) */
+    --color-primary: #2e7d32;
+    --color-primary-light: #4caf50;
+    --color-secondary: #ff9800;
+    --color-secondary-dark: #f57c00;
+    --color-bg: #f9f9f9;
+    --color-bg-alt: #ffffff;
+    --color-text: #333333;
+    --color-text-light: #666666;
+    --color-header: linear-gradient(135deg, #2e7d32, #4caf50);
+    --color-card: #f1f8e9;
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    --color-border: #ddd;
+}
+
+/* Variables para modo oscuro */
+[data-theme="dark"] {
+    --color-primary: #4caf50;
+    --color-primary-light: #66bb6a;
+    --color-secondary: #ff9800;
+    --color-secondary-dark: #f57c00;
+    --color-bg: #121212;
+    --color-bg-alt: #1e1e1e;
+    --color-text: #f0f0f0;
+    --color-text-light: #b0b0b0;
+    --color-header: linear-gradient(135deg, #1b5e20, #2e7d32);
+    --color-card: #2d2d2d;
+    --color-shadow: rgba(0, 0, 0, 0.3);
+    --color-border: #444444;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
@@ -20,20 +56,45 @@ body {
 
 /* Header */
 header {
-    background: linear-gradient(135deg, #2e7d32, #4caf50);
+    background: var(--color-header);
     color: white;
     padding: 1rem 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px var(--color-shadow);
 }
 
 header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* ======================
+   BOTÓN MODO OSCURO
+   ====================== */
+.dark-mode-toggle {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s;
+    margin-left: 1rem;
+}
+
+.dark-mode-toggle:hover {
+    background: white;
+    color: #2e7d32;
+    transform: scale(1.1);
 }
 
 .logo {
@@ -77,7 +138,7 @@ nav ul li a:hover {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #4caf50, #2e7d32);
+    background: var(--color-header);
     color: white;
     padding: 8rem 0 4rem;
     text-align: center;
@@ -118,14 +179,11 @@ nav ul li a:hover {
 /* Sección Servicios */
 .servicios {
     padding: 4rem 0;
-    background-color: white;
+    background-color: var(--color-bg-alt);
 }
 
 .servicios h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-    font-size: 2.5rem;
-    color: #2e7d32;
+    color: var(--color-primary);
 }
 
 .servicios-grid {
@@ -135,12 +193,9 @@ nav ul li a:hover {
 }
 
 .servicio-card {
-    background-color: #f1f8e9;
-    padding: 2rem;
-    border-radius: 15px;
-    text-align: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background-color: var(--color-card);
+    box-shadow: 0 5px 15px var(--color-shadow);
+    color: var(--color-text);
 }
 
 .servicio-card:hover {
@@ -154,9 +209,7 @@ nav ul li a:hover {
 }
 
 .servicio-card h3 {
-    color: #2e7d32;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+    color: var(--color-primary);
 }
 
 /* Servicio de Construcción */
@@ -175,15 +228,11 @@ nav ul li a:hover {
 
 /* SECCIÓN GALERÍA - SIMPLIFICADA Y FUNCIONAL */
 .galeria {
-    padding: 4rem 0;
-    background: linear-gradient(to bottom, #e8f5e9, #f1f8e9);
+    background: linear-gradient(to bottom, var(--color-bg), var(--color-card));
 }
 
 .galeria h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #2e7d32;
-    margin-bottom: 3rem;
+    color: var(--color-primary);
 }
 
 .galeria-grid {
@@ -195,13 +244,11 @@ nav ul li a:hover {
 
 /* Items de galería con imágenes */
 .galeria-item {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    height: 250px;
-    position: relative;
+    background: var(--color-bg-alt);
+    box-shadow: 0 8px 25px var(--color-shadow);
+    height: 220px; 
+    overflow: hidden; 
+    position: relative; 
 }
 
 .galeria-item:hover {
@@ -283,16 +330,13 @@ nav ul li a:hover {
 
 /* Sección Contacto */
 .contacto {
-    padding: 4rem 0;
-    background-color: white;
+    background-color: var(--color-bg-alt);
 }
 
 .contacto h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-    font-size: 2.5rem;
-    color: #2e7d32;
+    color: var(--color-primary);
 }
+
 
 .contacto-content {
     display: grid;
@@ -301,9 +345,15 @@ nav ul li a:hover {
 }
 
 .contacto-info h3 {
-    color: #2e7d32;
-    margin-bottom: 1rem;
-    font-size: 1.8rem;
+    color: var(--color-primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg);
+    color: var(--color-text);
 }
 
 .contacto-info p {
@@ -332,10 +382,7 @@ nav ul li a:hover {
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: #2e7d32;
+    color: var(--color-primary);
 }
 
 .form-group input,
@@ -417,6 +464,15 @@ footer {
     .servicios-grid {
         grid-template-columns: 1fr;
     }
+
+        .dark-mode-toggle {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -454,8 +510,7 @@ footer {
 }
 
 .contacto-item .whatsapp-link {
-    color: #333;
-    font-size: 1.1rem;
+    color: var(--color-text);
 }
 
 .contacto-item .whatsapp-link:hover {
@@ -477,17 +532,14 @@ footer {
 }
 
 /* =========================
-   SECCIÓN NOSOTROS
+    SECCIÓN NOSOTROS
 ========================= */
 .nosotros {
-    padding: 4rem 0;
-    background-color: #f9f9f9;
+    background-color: var(--color-bg);
 }
 
 .nosotros h2 {
-    text-align: center;
-    color: #2e7d32;
-    margin-bottom: 3rem;
+    color: var(--color-primary);
 }
 
 .nosotros-bloque {
@@ -496,14 +548,11 @@ footer {
 }
 
 .nosotros-bloque h3 {
-    color: #1b5e20;
-    margin-bottom: 1rem;
+    color: var(--color-primary);
 }
 
 .nosotros-bloque p {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: #444;
+    color: var(--color-text);
 }
 
 .valores-lista {
@@ -523,4 +572,8 @@ footer {
     left: 0;
     color: #2e7d32;
     font-weight: bold;
+}
+
+.contacto {
+    margin-top: 80px;
 }
