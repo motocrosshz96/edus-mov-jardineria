@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUS.MOV - Servicio de Jardinería & Limpieza</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/jadineria2.JPG" alt="EDUS.MOV Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1>EDUS.MOV</h1>
+                    <p>Servicio de Jardinería & Limpieza</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h2>Transformamos tus espacios</h2>
+            <p>Jardinería profesional y servicios de limpieza para hogares y empresas</p>
+            <a href="#contacto" class="btn">Solicitar Presupuesto</a>
+        </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section id="servicios" class="servicios">
+        <div class="container">
+            <h2>Nuestros Servicios</h2>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <div class="servicio-icon">🌿</div>
+                    <h3>Jardinería</h3>
+                    <p>Diseño, mantenimiento y cuidado de jardines residenciales y comerciales.</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">🧹</div>
+                    <h3>Limpieza</h3>
+                    <p>Servicios de limpieza profunda para hogares, oficinas y espacios comerciales.</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">🌳</div>
+                    <h3>Paisajismo</h3>
+                    <p>Diseño y creación de espacios verdes atractivos y funcionales.</p>
+                </div>
+                <div class="servicio-card construccion">
+                    <div class="servicio-icon">🏗️</div>
+                    <h3>Construcción</h3>
+                    <p>Servicios de construcción y remodelación para proyectos residenciales y comerciales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Galería -->
+    <section id="galeria" class="galeria">
+        <div class="container">
+            <h2>Nuestro Trabajo</h2>
+            <div class="galeria-grid">
+                <!-- Jardinería 1 - Con imagen -->
+                <div class="galeria-item">
+                    <img src="images/jardineria.jpg" alt="Jardinería Profesional" class="galeria-img">
+                    <div class="galeria-overlay">
+                        <h3>Jardinería Profesional</h3>
+                    </div>
+                </div>
+
+                <!-- Jardinería 2 - Con imagen -->
+                <div class="galeria-item">
+                    <img src="images/jardineria1.jpg" alt="Mantenimiento de Jardines" class="galeria-img">
+                    <div class="galeria-overlay">
+                        <h3>Mantenimiento</h3>
+                    </div>
+                </div>
+
+                <!-- Nueva imagen information.jpg -->
+                <div class="galeria-item">
+                    <img src="images/information.jpg" alt="Información de Servicios" class="galeria-img">
+                    <div class="galeria-overlay">
+                        <h3>Nuestros Servicios</h3>
+                    </div>
+                </div>
+
+                <div class="galeria-item">
+                    <img src="images/logo.png" alt="Información de Servicios" class="galeria-img">
+                    <div class="galeria-overlay">
+                        <h3>Nuestros Servicios</h3>
+                    </div>
+                </div>
+                <div class="galeria-item placeholder">
+                    <div class="placeholder-content">
+                        <div class="servicio-icon">🧹</div>
+                        <h3>Limpieza 1</h3>
+                        <p>Próximamente</p>
+                    </div>
+                </div>
+                <div class="galeria-item placeholder">
+                    <div class="placeholder-content">
+                        <div class="servicio-icon">✨</div>
+                        <h3>Limpieza 2</h3>
+                        <p>Próximamente</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+<section id="contacto" class="contacto">
+    <div class="container">
+        <h2>Contacto</h2>
+        <div class="contacto-content">
+            <div class="contacto-info">
+                <h3>¡Contáctanos hoy mismo!</h3>
+                <p>Estamos listos para transformar tus espacios. Solicita un presupuesto sin compromiso.</p>
+                <div class="contacto-datos">
+                    <div class="contacto-item">
+                        <span class="contacto-icon">📞</span>
+                        <a href="https://wa.me/56950667755" target="_blank" class="whatsapp-link">
+                            +56 9 5066 7755
+                        </a>
+                    </div>
+                    <div class="contacto-item">
+                        <span class="contacto-icon">💬</span>
+                        <span>Escríbenos por WhatsApp</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contacto-form">
+                <form id="formulario-contacto">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="servicio">Servicio de interés</label>
+                        <select id="servicio" name="servicio">
+                            <option value="jardineria">Jardinería</option>
+                            <option value="limpieza">Limpieza</option>
+                            <option value="paisajismo">Paisajismo</option>
+                            <option value="construccion">Construcción</option>
+                            <option value="varios">Varios servicios</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>EDUS.MOV</h3>
+                <p>Servicio de Jardinería & Limpieza</p>
+            </div>
+            <div class="footer-contacto">
+                <p>
+                    <a href="https://wa.me/56950667755" target="_blank" class="whatsapp-link">
+                        WhatsApp: +56 9 5066 7755
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2025 EDUS.MOV - Todos los derechos reservados</p>
+        </div>
+    </div>
+</footer>
