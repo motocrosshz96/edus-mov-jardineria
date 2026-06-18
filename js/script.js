@@ -93,6 +93,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* =========================================================================
+       4. FILTROS DE GALERÍA POR CATEGORÍA
+       ========================================================================= */
+    const filtroButtons = document.querySelectorAll('.filtro-btn');
+    const categoriaSections = document.querySelectorAll('.galeria-categoria');
+
+    if (filtroButtons.length > 0 && categoriaSections.length > 0) {
+        filtroButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Actualizar botón activo
+                filtroButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                if (filterValue === 'todos') {
+                    // Mostrar todas las categorías con animación escalonada
+                    categoriaSections.forEach((section, index) => {
+                        setTimeout(() => {
+                            section.classList.remove('hidden');
+                            section.style.maxHeight = section.scrollHeight + 'px';
+                        }, index * 100);
+                    });
+                } else {
+                    // Mostrar solo la categoría seleccionada
+                    categoriaSections.forEach(section => {
+                        const sectionCategory = section.getAttribute('data-category-section');
+                        if (sectionCategory === filterValue) {
+                            section.classList.remove('hidden');
+                            section.style.maxHeight = section.scrollHeight + 'px';
+                        } else {
+                            section.classList.add('hidden');
+                            section.style.maxHeight = '0px';
+                        }
+                    });
+                }
+            });
+        });
+
+        // Inicializar: todas visibles, establecer max-height
+        categoriaSections.forEach(section => {
+            section.style.maxHeight = 'none';
+        });
+    }
+
+
+    /* =========================================================================
        4. DARK MODE (Sistema de Tema)
        ========================================================================= */
     const darkToggle = document.getElementById('dark-mode-toggle');
@@ -139,6 +185,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('theme', 'dark');
                 updateToggleButton(true);
             }
+        });
+    }
+
+
+    /* =========================================================================
+       5. FOOTER CONTACT FORM
+       ========================================================================= */
+    const footerForm = document.getElementById('footer-contact-form');
+    if (footerForm) {
+        footerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('footer-email').value;
+            const message = document.getElementById('footer-message').value;
+            
+            // Abrir mailto con los datos del formulario
+            const subject = encodeURIComponent('Contacto desde sitio web - EDUS.MOV');
+            const body = encodeURIComponent(`Mensaje de: ${email}\n\n${message}`);
+            window.location.href = `mailto:edus.mov@gmail.com?subject=${subject}&body=${body}`;
+            
+            // Feedback visual
+            const btn = footerForm.querySelector('.footer-form-btn');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<span>¡Enviado! ✓</span>';
+            btn.style.background = '#059669';
+            
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.style.background = '';
+                footerForm.reset();
+            }, 3000);
         });
     }
 
